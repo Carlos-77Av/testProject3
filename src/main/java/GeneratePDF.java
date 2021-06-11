@@ -33,8 +33,8 @@ public class GeneratePDF {
                 PdfPTable table = new PdfPTable(7);
 
                 //Add table header
-                for (int i = 0; i < header.length; i++){
-                    table.addCell(header[i]);
+                for (String s : header) {
+                    table.addCell(s);
                 }
 
                 //Add the content

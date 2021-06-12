@@ -11,14 +11,9 @@ public class Flight {
     private int noFlight;
     private String airline;
     private String typeAircraft;
-    private String source;
+    private String origin;
     private String date;
     private String departureTime;
     private String arrivalTime;
-
-    public void newFlight(){
-        Scanner read = new Scanner(System.in);
-
-    }
 }
 

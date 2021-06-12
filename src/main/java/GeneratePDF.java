@@ -7,7 +7,7 @@ import java.io.FileOutputStream;
 import java.util.List;
 
 public class GeneratePDF {
-        public void FlightPDF(List<Flight> flightData){
+        public String FlightPDF(List<Flight> flightData){
             final String[] header= {"No FLIGHT",	"AIRLINE", "TYPE AIRCRAFT", "SOURCE", "DESTINATION DATE", "DEPARTURE TIME",	"ARRIVAL TIME"};
             //Create the document
             Document document = new Document(PageSize.A3.rotate());
@@ -22,12 +22,6 @@ public class GeneratePDF {
 
                 //Paragraph
                 Paragraph title = new Paragraph("List of Scheduled Flights\n\n",
-                        FontFactory.getFont("arial",
-                                22,
-                                Font.BOLD,
-                                BaseColor.BLUE));
-
-                Paragraph clime = new Paragraph("List of Scheduled Flights\n\n",
                         FontFactory.getFont("arial",
                                 22,
                                 Font.BOLD,
@@ -52,7 +46,7 @@ public class GeneratePDF {
                     table.addCell(Integer.toString(data.getNoFlight()));
                     table.addCell(data.getAirline());
                     table.addCell(data.getTypeAircraft());
-                    table.addCell(data.getSource());
+                    table.addCell(data.getOrigin());
                     table.addCell(data.getDate());
                     table.addCell(data.getDepartureTime());
                     table.addCell(data.getArrivalTime());
@@ -61,14 +55,27 @@ public class GeneratePDF {
                 //Add the table to the document
                 document.add(table);
 
+
+                //Information about climate
+                Weather climate = new Weather();
+                Paragraph clime = new Paragraph("\n\n" + climate.CurrentWeather() +"\n\n",
+                        FontFactory.getFont("arial",
+                                14,
+                                Font.BOLD,
+                                BaseColor.DARK_GRAY));
+
+                //Add the clime information in the PDF
+                document.add(clime);
+
                 //Close document
                 document.close();
                 System.out.println("The PDF file was created correctly...\n");
 
+
+
             }catch (FileNotFoundException | DocumentException ex){
                 System.out.println("An error has occurred");
             }
-
-
+            return "test.pdf";
         }
 }

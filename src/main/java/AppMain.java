@@ -11,17 +11,23 @@ public class AppMain {
 
         //MAIN MENU
         Menu start = new Menu();
-        start.mainMenu();
+        start.mainMenu(aircraftList, flightData);
+
+
+
 
 
 
         /*
+
         ExcelGenerator generate = new ExcelGenerator("FlightList.xlsx", "flights");
 
         generate.generate(flightData);
 
         GeneratePDF flightPDF = new GeneratePDF();
         flightPDF.FlightPDF(flightData);
+
         */
+
     }
 }

@@ -55,7 +55,7 @@ public class ExcelGenerator {
                 cell.setCellValue(data.getTypeAircraft());
 
                 cell = row.createCell(3);
-                cell.setCellValue(data.getSource());
+                cell.setCellValue(data.getOrigin());
 
                 cell = row.createCell(4);
                 cell.setCellValue(data.getDate());

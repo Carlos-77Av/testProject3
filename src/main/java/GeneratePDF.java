@@ -10,7 +10,7 @@ public class GeneratePDF {
         public void FlightPDF(List<Flight> flightData){
             final String[] header= {"No FLIGHT",	"AIRLINE", "TYPE AIRCRAFT", "SOURCE", "DESTINATION DATE", "DEPARTURE TIME",	"ARRIVAL TIME"};
             //Create the document
-            Document document = new Document();
+            Document document = new Document(PageSize.A3.rotate());
             try {
                 FileOutputStream pdfFile = new FileOutputStream("test.pdf");
 
@@ -27,10 +27,20 @@ public class GeneratePDF {
                                 Font.BOLD,
                                 BaseColor.BLUE));
 
+                Paragraph clime = new Paragraph("List of Scheduled Flights\n\n",
+                        FontFactory.getFont("arial",
+                                22,
+                                Font.BOLD,
+                                BaseColor.BLUE));
+
                 document.add(title);
 
                 //Creating a table for showing data
                 PdfPTable table = new PdfPTable(7);
+                table.setWidthPercentage(100);
+                table.getDefaultCell().setUseAscender(true);
+                table.getDefaultCell().setUseDescender(true);
+
 
                 //Add table header
                 for (String s : header) {

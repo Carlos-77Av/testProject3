@@ -3,6 +3,13 @@ import java.util.List;
 
 public class AppMain {
     public static void main(String[] args) {
+        ArrayList<Aircraft> aircraftList = new ArrayList<>();
+        Aircraft aircraft = new Aircraft("R45", 350, "250km");
+        aircraftList.add(aircraft);
+
+        aircraft = new Aircraft("R50", 300, "360km");
+        aircraftList.add(aircraft);
+
 
         ArrayList<Flight> flightData = new ArrayList<>();
         Flight flight = new Flight(1, "Taca", "rf56", "San Salvador", "6/11/2021", "7:00", "12:00");
@@ -23,10 +30,14 @@ public class AppMain {
         flight = new Flight(1, "United", "rf56", "Paris", "6/11/2021", "6:00", "14:00");
         flightData.add(flight);
 
+        /*
+
         ExcelGenerator generate = new ExcelGenerator("FlightList.xlsx", "flights");
         generate.generate(flightData);
 
         GeneratePDF flightPDF = new GeneratePDF();
         flightPDF.FlightPDF(flightData);
+
+         */
     }
 }

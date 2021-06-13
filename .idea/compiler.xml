@@ -10,5 +10,8 @@
         <module name="ExcelGenerator" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="ExcelGenerator" target="11" />
+    </bytecodeTargetLevel>
   </component>
 </project>
